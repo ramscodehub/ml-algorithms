@@ -42,6 +42,9 @@ y_train = data[:, 1]
 theta,cost=polynomial_regression(X_train,y_train,0.00001,100,2)
 plt.plot([i for i in range(len(cost))],cost)
 plt.show()
+
+
+
 """data1.txt
 6.1101,17.592
 5.5277,9.1302
