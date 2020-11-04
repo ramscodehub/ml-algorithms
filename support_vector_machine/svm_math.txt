@@ -2,6 +2,8 @@
 #logistic regression tries to maximise the posterior class probability whereas SVM tries to maximise the margin between closest support vectors
 #inorder to solve problems that are non linearly seperable we try to make use of techniques called svm kernels(by transforming a low dimensionl to high dimensional)
 # In a binary classification problem, given a linearly separable data set, the optimal separating hyperplane is the one that correctly classifies all the data while being farthest away from the data points.
+#The hard margin is a one which clearly separate positive and negative points.
+#Soft margin is also called as noisy linear SVM which includes some miss-classified points
 #refer[https://www.youtube.com/watch?v=_PwhiWxHK8o][https://www.youtube.com/watch?v=IEOgRGh7x4g][https://medium.com/analytics-vidhya/everything-one-should-know-about-support-vector-machines-svm-18e6d3f96f49]
 #[https://towardsdatascience.com/svm-implementation-from-scratch-python-2db2fc52e5c2]
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
