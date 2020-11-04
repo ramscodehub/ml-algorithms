@@ -1,0 +1,52 @@
+#Support Vector Machine (SVM) also called optimal margin classifier is an algorithm used for classification problems similar to Logistic Regression (LR)
+#logistic regression tries to maximise the posterior class probability whereas SVM tries to maximise the margin between closest support vectors
+#inorder to solve problems that are non linearly seperable we try to make use of techniques called svm kernels(by transforming a low dimensionl to high dimensional)
+# In a binary classification problem, given a linearly separable data set, the optimal separating hyperplane is the one that correctly classifies all the data while being farthest away from the data points.
+#refer[https://www.youtube.com/watch?v=_PwhiWxHK8o][https://www.youtube.com/watch?v=IEOgRGh7x4g][https://medium.com/analytics-vidhya/everything-one-should-know-about-support-vector-machines-svm-18e6d3f96f49]
+#[https://towardsdatascience.com/svm-implementation-from-scratch-python-2db2fc52e5c2]
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#For all xi in training data:
+    1. xi.w + b <= -1 if yi = -1 (belongs to negative class)
+    2. xi.w + b >= 1 if yi = 1  (belongs to positive class)
+    1 and 2 can be written together as yi(xi.w + b) >= 1
+-------------------------------------------------------------------
+#For all xi those are support vectors (data points that lie on the either of the margins)
+    1. xi.w + b = -1 where xi is negative support_vector, yi = -1
+    2. xi.w + b = 1  where xi is positive support_vector , yi = 1
+---------------------------------------------------------------------
+#For decision boundary(hyper plane) yi(xi.w + b)=0 where xi is a point on plane
+#optimise width between the vectors X+ ,X- such that yi(xi.w + b)>=1
+Maximise Width = (X+ - X-) . ( w_vector/||w_vector|| )
+or Minimise || w_vector ||
+---------------------------------------------------------------------
+#After finding optimised w and b:
+    xi.w + b = 1 (line passing through positive support_vector)
+    xi.w + b = -1 (line passing through negative support_vector)
+    xi.w + b = 0  (decision boundary or the hyperplane)
+#It is a Convex Optimization problem and will always lead to a global minimum
+#This is Linear SVM means kernel is linear
+-----------------------------------------------------------------------
+#loss function(Hinge loss):
+-----------------------------------------------------------------------
+c(xi,yi,f(xi))=(1 - yi.f(xi))+
+where f(xi) = xi.w_vector + b
+
+c(xi,yi,f(xi)) =   0  if yi.f(xi) >=1
+                   1-yi.f(xi) else
+-----------------------------------------------------------------------
+#objective function:
+------------------------------------------------------------------------
+J = sum(1 - yi.f(xi)) + lambda.||w_vector||^2
+
+dJ/dw (lambda.||w_vector||^2) = 2.lambda.w_vector
+
+dJ/dw (sum(1 - yi.f(xi))) = 0 if yi.f(xi) >=1
+                            -yi.f(xi) else
+-------------------------------------------------------------------------
+#update rule:
+-------------------------------------------------------------------------
+(misclassified samples) wnew = w_old - learningrate * ( 2.lambda.w_vector - yi.f(xi) )
+(correctly classified samples) wnew= w_old - learningrate *(2.lambda.w_vector)
+---------------------------------------------------------------------------------
+For regularizer parameter lambda we choose 1/epochs so this parameter will decrease as no of epochs increases
+lambda = (1/epochs)
