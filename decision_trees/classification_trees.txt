@@ -1,0 +1,20 @@
+classification:The Gene cost function is used which provides an indication of how pure the nodes are where node purity refers
+to how mixed the training data assigned to each node is.
+#Splitting continues till nodes contain a minimum number of training examples or a maximum tree depth is reached.
+A Gene Score gives an idea of how good a split is by how mixed the classes are in  two groups created by the split
+------------------------------------------------------------------------------------------------------------------------
+                                    Gene impurity
+------------------------------------------------------------------------------------------------------------------
+A gene impurity is the probability of incorrectly classifying a randomly chosen element in the dataset
+A prefect split results in a gene score of 0
+Gene impurity: sum( p_i * ( 1 - p_i ) for i belongs to unique classes
+--->A gene impurity of 0 can only be achieved when everything belongs to same class
+--->Information gain is a useful way to quantify what feature and feature value to split on at each node
+--->When training a decision tree, the best split is chosen by maximizing the Information Gain, which is calculated by subtracting the weighted impurities of the branches from the original impurity
+------------------------------------------------------------------------------------------------------------------------------------------------------
+source...>> [https://victorzhou.com/blog/gini-impurity/]
+let p=(len(left)/len(left)+len(right))
+then gene gain(info gain) = gene_impurity - ( p*(gene_impurity(left)) + (1-p)*(gene_impurity(right))
+Higher the gene gain,better the split
+#alternative to gene_gain another metric called Information gain and entropy can also be used
+--------------------------------------------------------------------------------------------------------------------------------------------------------
